@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="message"
+            type="com.ciscowebex.androidsdk.kitchensink.messaging.spaces.SpaceMessageModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/membershipContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:context="com.ciscowebex.androidsdk.kitchensink.messaging.spaces.members.MembershipActivity">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline1"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="100dp" />
+
+        <TextView
+            android:id="@+id/senderIdLabel"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:paddingStart="10dp"
+            android:text="@string/sender"
+            app:layout_constraintBottom_toBottomOf="@id/senderIdTextView"
+            app:layout_constraintEnd_toEndOf="@id/guideline1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/senderIdTextView"
+            tools:ignore="RtlSymmetry" />
+
+        <TextView
+            android:id="@+id/senderIdTextView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:padding="6dp"
+            android:text="@{message.personId}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/guideline1"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="ljkdshflakjshdjfkljasdhflasdkj" />
+
+        <TextView
+            android:id="@+id/sentDateLabel"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:paddingStart="10dp"
+            android:text="@string/sent_date"
+            app:layout_constraintBottom_toBottomOf="@id/sentDateTextView"
+            app:layout_constraintEnd_toEndOf="@id/guideline1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/sentDateTextView"
+            tools:ignore="RtlSymmetry" />
+
+        <TextView
+            android:id="@+id/sentDateTextView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:padding="6dp"
+            android:text="@{message.createdDateTimeString}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/guideline1"
+            app:layout_constraintTop_toBottomOf="@id/senderIdTextView"
+            tools:text="ljkdshflakjshdjfkljasdhflasdkj" />
+
+        <TextView
+            android:id="@+id/messageTextView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:padding="6dp"
+            android:text="@{android.text.Html.fromHtml(message.messageBody.markdown)}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/sentDateTextView"
+            tools:text="ljkdshflakjshdjfkljasdhflasdkj" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
