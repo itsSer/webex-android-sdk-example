@@ -86,7 +86,7 @@ class PeopleFragment : Fragment() {
     }
 
     private fun fetchDetailsById(personId: String) {
-        PersonDialogFragment.newInstance(personId).show(parentFragmentManager, getString(R.string.person_detail))
+        PersonDialogFragment.newInstance(personId).show(childFragmentManager, getString(R.string.person_detail))
     }
 
     private fun showPostMessageDialog(id: String?, email: EmailAddress?, model: PersonModel) {

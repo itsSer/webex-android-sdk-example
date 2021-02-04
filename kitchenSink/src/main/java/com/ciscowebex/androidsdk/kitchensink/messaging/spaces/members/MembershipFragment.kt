@@ -142,7 +142,7 @@ class MembershipFragment : Fragment() {
     }
 
     private fun showPersonDetails(personId: String) {
-        PersonDialogFragment.newInstance(personId).show(parentFragmentManager, getString(R.string.person_detail))
+        PersonDialogFragment.newInstance(personId).show(childFragmentManager, getString(R.string.person_detail))
     }
 }
 
